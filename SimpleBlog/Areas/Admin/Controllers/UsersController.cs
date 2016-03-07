@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SimpleBlog.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "user")]
     public class UsersController : Controller
     {
         public ActionResult Index()
