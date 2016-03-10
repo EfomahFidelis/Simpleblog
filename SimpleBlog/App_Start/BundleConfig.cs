@@ -28,15 +28,15 @@ namespace SimpleBlog.App_Start
                 .Include("~/Scripts/ie-emulation-modes-warning.js")
                 .Include("~/Scripts/holder.js"));
 
-            //bundles.Add(new StyleBundle("~/scripts")
-            //    .Include("~/Scripts/modernizr-1.7.js")
-            //    .Include("~/Scripts/jquery-2.2.1.js")
-            //    .Include("~/Scripts/jquery.validate.js")
-            //    .Include("~/Scripts/jquery.validate.unobtrusive.js")
-            //    .Include("~/Scripts/bootstrap.js")
-            //    .Include("~/Scripts/ie10-viewport-bug-workaround.js")
-            //    .Include("~/Scripts/ie-emulation-modes-warning.js")
-            //    .Include("~/Scripts/holder.js"));
+            bundles.Add(new StyleBundle("~/scripts")
+               .Include("~/Scripts/modernizr-1.7.js")
+               .Include("~/Scripts/jquery-2.2.1.js")
+               .Include("~/Scripts/jquery.validate.js")
+               .Include("~/Scripts/jquery.validate.unobtrusive.js")
+               .Include("~/Scripts/bootstrap.js")
+               .Include("~/Scripts/ie10-viewport-bug-workaround.js")
+               .Include("~/Scripts/ie-emulation-modes-warning.js")
+               .Include("~/Scripts/holder.js"));
         }
     }
 }
