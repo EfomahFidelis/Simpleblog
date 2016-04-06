@@ -1,0 +1,3 @@
+﻿
+PS C:\Users\LEON\Documents\Visual Studio 2010\Projects\
+3dbuzz\Classes\Web\SimpleBlog\SimpleBlog\SimpleBlog\Tools> .\DeployDB.Dev.bat
