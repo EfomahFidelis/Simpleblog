@@ -1,5 +1,15 @@
-﻿@{
+﻿@model SimpleBlog.Areas.Admin.ViewModels.UsersIndex
+
+@{
     ViewBag.Title = "Users";
 }
 
 <h1>Users</h1>
+
+<ul>
+    @foreach (var user in Model.Users)
+    { 
+        <li>@user.Username</li>
+    }
+        
+</ul>
