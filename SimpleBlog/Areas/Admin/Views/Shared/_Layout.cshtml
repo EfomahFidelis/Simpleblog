@@ -22,7 +22,8 @@
         @Styles.Render("~/admin/styles")
     </head>
     <body>
-        <div class"container">
+        <div class ="container">
+           <div class = "row">
             <ul class="nav nav-pills">
             <!--
                 <li class="@SelectedTabClass("posts")">
@@ -39,6 +40,7 @@
                     @Html.RouteLink("Back to website", "Home")
                 </li>
             </ul>
+          </div>
         </div>
         @RenderBody()
 

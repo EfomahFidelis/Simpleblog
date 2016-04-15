@@ -11,32 +11,30 @@ namespace SimpleBlog.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/admin/styles")
-                .Include("~/Content/Styles/bootstrap.css")
-                .Include("~/Content/Styles/Admin.css"));
+                .Include("~/content/styles/bootstrap.css")
+                .Include("~/content/styles/admin.css"));
 
             bundles.Add(new StyleBundle("~/styles")
-                .Include("~/Content/Styles/bootstrap.css")
-                .Include("~/Content/Styles/Site.css"));
+                .Include("~/content/styles/bootstrap.css")
+                .Include("~/content/styles/site.css"));
 
             bundles.Add(new StyleBundle("~/admin/scripts")
-                .Include("~/Scripts/modernizr-1.7.js")
-                .Include("~/Scripts/jquery-2.2.1.js")
-                .Include("~/Scripts/jquery.validate.js")
-                .Include("~/Scripts/jquery.validate.unobtrusive.js")
-                .Include("~/Scripts/bootstrap.js")
-                .Include("~/Scripts/ie10-viewport-bug-workaround.js")
-                .Include("~/Scripts/ie-emulation-modes-warning.js")
-                .Include("~/Scripts/holder.js"));
+                .Include("~/scripts/modernizr-1.7.js")
+                .Include("~/scripts/jquery-2.2.1.js")
+                .Include("~/scripts/jquery.validate.js")
+                .Include("~/scripts/jquery.validate.unobtrusive.js")
+                .Include("~/scripts/bootstrap.js")
+                .Include("~/areas/admin/scripts/forms.js"));
 
             bundles.Add(new StyleBundle("~/scripts")
-               .Include("~/Scripts/modernizr-1.7.js")
-               .Include("~/Scripts/jquery-2.2.1.js")
-               .Include("~/Scripts/jquery.validate.js")
-               .Include("~/Scripts/jquery.validate.unobtrusive.js")
-               .Include("~/Scripts/bootstrap.js")
-               .Include("~/Scripts/ie10-viewport-bug-workaround.js")
-               .Include("~/Scripts/ie-emulation-modes-warning.js")
-               .Include("~/Scripts/holder.js"));
+               .Include("~/scripts/modernizr-1.7.js")
+               .Include("~/scripts/jquery-2.2.1.js")
+               .Include("~/scripts/jquery.validate.js")
+               .Include("~/scripts/jquery.validate.unobtrusive.js")
+               .Include("~/scripts/bootstrap.js")
+               .Include("~/scripts/ie10-viewport-bug-workaround.js")
+               .Include("~/scripts/ie-emulation-modes-warning.js")
+               .Include("~/scripts/holder.js"));
         }
     }
 }
