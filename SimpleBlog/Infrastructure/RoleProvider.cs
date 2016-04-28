@@ -10,12 +10,7 @@ namespace SimpleBlog.Infrastructure
         // This tells ASPNET that a person has the access to a particular thing
         public override string[] GetRolesForUser(string username)
         {
-            if (username == "fidelis")
-            {
-                return new[] {"admin"};
-            }
-
-            return new string[] { "" };
+            return Auth.User.Roles.Select(role => role.Name).ToArray();
 
         }
 

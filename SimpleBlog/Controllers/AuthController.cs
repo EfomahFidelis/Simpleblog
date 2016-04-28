@@ -35,10 +35,10 @@ namespace SimpleBlog.Controllers
                 SimpleBlog.Models.User.FakeHash();
 
             if (user == null || !user.CheckPassword(form.Password))
-                ModelState.AddModelError("Username", "Username or password is incorrect");
+                ModelState.AddModelError("Username", "User name or password is incorrect");
 
             if (!ModelState.IsValid)
-                return View();
+                return View(form);
 
             // This tells ASPNET that a person says who he/she is
             FormsAuthentication.SetAuthCookie(user.Username, true);

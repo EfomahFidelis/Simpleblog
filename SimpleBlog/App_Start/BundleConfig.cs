@@ -19,7 +19,6 @@ namespace SimpleBlog.App_Start
                 .Include("~/content/styles/site.css"));
 
             bundles.Add(new StyleBundle("~/admin/scripts")
-                .Include("~/scripts/modernizr-1.7.js")
                 .Include("~/scripts/jquery-2.2.1.js")
                 .Include("~/scripts/jquery.validate.js")
                 .Include("~/scripts/jquery.validate.unobtrusive.js")
@@ -27,14 +26,10 @@ namespace SimpleBlog.App_Start
                 .Include("~/areas/admin/scripts/forms.js"));
 
             bundles.Add(new StyleBundle("~/scripts")
-               .Include("~/scripts/modernizr-1.7.js")
                .Include("~/scripts/jquery-2.2.1.js")
                .Include("~/scripts/jquery.validate.js")
                .Include("~/scripts/jquery.validate.unobtrusive.js")
-               .Include("~/scripts/bootstrap.js")
-               .Include("~/scripts/ie10-viewport-bug-workaround.js")
-               .Include("~/scripts/ie-emulation-modes-warning.js")
-               .Include("~/scripts/holder.js"));
+               .Include("~/scripts/bootstrap.js"));
         }
     }
 }

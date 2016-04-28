@@ -7,13 +7,32 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SimpleBlog.Areas.Admin.ViewModels
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    public class RoleCheckbox
+    {
+        public int Id { get; set; }
+        public bool IsChecked { get; set; }
+        public string Name { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>   
     public class UsersIndex
     {
         public IEnumerable<User> Users { get; set; }
     }
 
+
+    /// <summary>
+    /// DTO
+    /// </summary>
     public class UsersNew
     {
+        public IList<RoleCheckbox> Roles { get; set; }
+
         [Required, StringLength(128)]
         public string Username { get; set; }
 
@@ -24,8 +43,14 @@ namespace SimpleBlog.Areas.Admin.ViewModels
         public string Email { get; set; }
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class UsersEdit
     {
+        public IList<RoleCheckbox> Roles { get; set; }
+
         [Required, StringLength(128)]
         public string Username { get; set; }
 
@@ -34,6 +59,9 @@ namespace SimpleBlog.Areas.Admin.ViewModels
     }
 
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class UsersResetPassword
     {
         // No data annotation because this data isn't modified
