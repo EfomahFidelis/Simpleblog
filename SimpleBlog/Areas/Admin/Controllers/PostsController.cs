@@ -14,7 +14,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
      [SelectedTab("posts")]
     public class PostsController: Controller
     {
-         private const int PostPerPage = 5;
+         private const int PostPerPage = 40;
 
 
         public ActionResult Index(int page = 1)
@@ -34,6 +34,67 @@ namespace SimpleBlog.Areas.Admin.Controllers
             { 
                 Posts = new PagedData<Post>(currentPostPage, totalPostCount, page, PostPerPage)
             });
+        }
+
+        public ActionResult New()
+        {
+            return View("Form", new PostsForm 
+            { 
+                IsNew = true
+            });
+        }
+
+        public ActionResult Edit(int id)
+        { 
+            var post = Database.Session.Load<Post>(id);
+                if(post == null)
+                    return HttpNotFound();
+            return View("Form", new PostsForm
+            {
+                 IsNew = false,
+                PostId = id,
+                Content = post.Content,
+                Slug = post.Slug,
+                Title = post.Title,
+            });
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Form(PostsForm form)
+        {
+            form.IsNew = form.PostId == null;
+
+            if (!ModelState.IsValid)
+            {
+                return View(form);
+            }
+
+            Post post;
+            if (form.IsNew)
+            {
+                post = new Post
+                {
+                    CreatedAt = DateTime.UtcNow,
+                    User = Auth.User,
+                };
+            }
+            else {
+
+                post = Database.Session.Load<Post>(form.PostId);
+
+                if (post == null)
+                    return HttpNotFound();
+
+                post.UpdatedAt = DateTime.UtcNow;
+            }
+
+            post.Title = form.Title;
+            post.Slug = form.Slug;
+            post.Content = form.Content;
+
+            Database.Session.SaveOrUpdate(post);
+
+            return RedirectToAction("Index");
         }
     }
 }
