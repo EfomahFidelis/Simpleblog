@@ -12,3 +12,38 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+ @model SimpleBlog.ViewModels.AuthLogin
+ 
+@{
+    ViewBag.Title = "";
+}
+ 
+ <div class="conatainer">
+    <div class="form-signin">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+         <div>
+            @Html.LabelFor(x => x.Username)
+            @Html.EditorFor(x => x.Username)
+         </div>
+
+         <div>
+            @Html.LabelFor(x => x.Password)
+            @Html.EditorFor(x => x.Password)
+         </div>
+        
+         <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+         </div>
+        
+         <div>
+           <input type="submit" value="Login" class="btn btn-sm btn-primary btn-block" />
+         </div>
+    }
+    </div>
+</div>

@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
     // search for every single "a tag" that has a data-post on it
-    $("a[data-post]").click(function(e) {
+    $("a[data-post]").click(function (e) {
         e.preventDefault();
 
         // alias out the jquery object of our 
@@ -15,8 +15,8 @@
         if (message && !confirm(message))
             return;
 
-            var antiForgeryToken = $("#anti-forgery-form input");
-            var antiForgeryInput = $("<input type='hidden'>").attr("name", antiForgeryToken.attr("name")).val(antiForgeryToken.val());
+        var antiForgeryToken = $("#anti-forgery-form input");
+        var antiForgeryInput = $("<input type='hidden'>").attr("name", antiForgeryToken.attr("name")).val(antiForgeryToken.val());
 
         $("<form>")
             .attr("method", "post")
@@ -24,6 +24,23 @@
             .append(antiForgeryInput)
             .appendTo(document.body)
             .submit();
+    });
+
+    $("[data-slug]").each(function() {
+        var $this = $(this);
+        var $sendSlugFrom = $($this.data("slug"));
+
+        $sendSlugFrom.keyup(function() {
+            var slug = $sendSlugFrom.val();
+            slug = slug.replace(/[^a-zA-Z0-9\s]/g, "");
+            slug = slug.toLowerCase();
+            slug = slug.replace(/\s+/g, "-");
+
+            if(slug.charAt(slug.length - 1) == "-")
+                slug = slug.substr(0, slug.length - 1)
+
+            $this.val(slug);
+        });   
     });
 
 });

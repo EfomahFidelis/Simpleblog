@@ -13,7 +13,8 @@
         @Styles.Render("~/Styles")
     </head>
     <body>
-        <h1>
+        <div class="container">
+        <h1 id="form-signin-heading">
             <a href="@Url.RouteUrl("home")">Simple Blog</a>
             <i class="glyphicon glyphicon-bell"></i>
         </h1>
@@ -30,7 +31,7 @@
         }
         else
         { 
-            <a href="@Url.RouteUrl("login")">Login</a>
+            <a href="@Url.RouteUrl("login")"></a>
         }
        
 
@@ -40,6 +41,9 @@
     <footer>
         &copy; @DateTime.UtcNow.Year - SILEDIF
     </footer>
+
+    </div>
+
 
     @Scripts.Render("~/Scripts")
     @RenderSection("Scripts", false)
