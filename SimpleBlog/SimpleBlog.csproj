@@ -142,6 +142,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Extension\StringExtensions.cs" />
     <Compile Include="Infrastructure\PagedData.cs" />
     <Compile Include="Infrastructure\RoleProvider.cs" />
     <Compile Include="Infrastructure\SelectedTabAttribute.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Areas\Admin\Scripts\Forms.js" />
+    <Content Include="Areas\Admin\Scripts\PostEditor.js" />
     <Content Include="Content\Fonts\font-awesome.min.css" />
     <Content Include="Content\Fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />

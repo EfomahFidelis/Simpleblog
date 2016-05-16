@@ -19,3 +19,34 @@
 	color: red;
 }
 
+ 	.post-tag-editor .tag-select {
+ 		list-style: none;
+ 		padding: 0;
+ 		margin: 10px 0;
+ 	}
+
+ 	 	.post-tag-editor .tag-select li {
+ 		border-bottom: 1px dashed #eee;
+ 		padding: 0;
+ 		margin:  0;
+ 	}
+
+ 	 	.post-tag-editor .tag-select li.template {
+ 		display:  none;
+ 	}
+
+ 	 	.post-tag-editor .tag-select li a {
+ 		display:  block;
+ 		padding: 2px 5px;
+ 		border-left: 26px solid #eee;
+ 	}
+
+ 	 	.post-tag-editor .tag-select li a:hover {
+ 		text-decoration:  none;
+ 		background: #eee;
+ 	}
+
+ 	 	.post-tag-editor .tag-select li.selected a {
+ 		border-left-color:  #3a87ad;
+ 		background: #d9edf7;
+ 	}

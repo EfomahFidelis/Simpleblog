@@ -4,10 +4,12 @@
 
 @using (Html.BeginForm("Form", "Posts"))
 {
+    
     if(!Model.IsNew)
     {
         @Html.HiddenFor(f => f.PostId)
     }
+    
     
     @Html.AntiForgeryToken()
 
@@ -27,9 +29,10 @@
 
             <div class="form=group">
                 @Html.LabelFor(f => f.Content)
-                @Html.TextAreaFor(f => f.Content, new { @class = "form-control" })
+                @Html.TextAreaFor(f => f.Content, new { @class ="form-control"})
             </div>
-        </div>
+        </div><!--col-lg-8-->
+
         <div class="col-lg-4">
             <div class="panel panel-info">
                 <div class="panel-heading">Post Action</div>
@@ -37,7 +40,50 @@
                     <input type="submit" value="@(Model.IsNew ? "Publish Post" : "Update Post")" class="btn btn-success btn-sm" />
                     <a href="@Url.Action("index")">or cancel</a>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div><!--panel-->
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Tags</div>
+                <div class="panel-body post-tag-editor">
+                    <label for="new-tag-name">New Tag:</label>
+                    <div class="input-group">
+                        <input id="new-tag-name" type="text" class="new-tag-name form-control" />
+                        <span class="input-group-btn">
+                            <button disabled class="btn btn-primary add-tag-button">Add</button>
+                        </span>
+                    </div>
+
+                     <ul class="tag-select">
+                        <li class="template">
+                            <a href="#" class="name"></a>
+
+                            <input type="hidden" class="name-input" />
+                            <input type="hidden" class="name-selected" />
+                        </li>
+
+                        @for(var i = 0; i < Model.Tags.Count; i++)
+                            {
+                                var tag = Model.Tags[i];
+                            
+                                <li data-tag-id="@tag.Id" class="@(tag.IsChecked ? "selected" : "")">
+                                    <a href="#">@tag.Name</a>
+
+                                    <input type="hidden" name="Tags[@(i)].Id" value="@tag.Id" />
+                                    <input type="hidden" name="Tags[@(i)].Name" value="@tag.Name" />
+                                    <input type="hidden" name="Tags[@(i)].IsChecked" value="@tag.IsChecked.ToString()" class="selected-input" />
+                                </li>
+                            }
+
+                    </ul>
+                </div><!--panel body-->
+            </div><!--panel info-->
+
+        </div><!--col-lg-4-->
+    </div><!--row-->
+}
+
+
+@section Scripts
+{
+    @Scripts.Render("~/admin/post/scripts")
 }
