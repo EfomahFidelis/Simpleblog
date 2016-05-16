@@ -26,14 +26,14 @@ namespace SimpleBlog.Areas.Admin.Controllers
             //
             var baseQuery = Database.Session.Query<Post>().OrderByDescending(f => f.CreatedAt);
 
-            //
+            // pagination SQL
             var postIds = baseQuery
                 .Skip((page - 1) * PostPerPage)
                 .Take(PostPerPage)
                 .Select(p => p.Id)
                 .ToArray();
 
-            // Get the currentPage
+            // (Data Retrieval) GetAll for the currentPage
             var currentPostPage = baseQuery
                 .Where(p => postIds.Contains(p.Id))
                 .FetchMany(f => f.Tags)
@@ -84,7 +84,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
             });
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, ValidateInput(false)]
         public ActionResult Form(PostsForm form)
         {
             form.IsNew = form.PostId == null;
