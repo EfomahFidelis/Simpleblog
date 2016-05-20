@@ -133,6 +133,10 @@ namespace SimpleBlog.Areas.Admin.Controllers
 
             Database.Session.SaveOrUpdate(post);
 
+            //returnUrl = this.Request.UrlReferrer.AbsolutePath;
+            
+            //return RedirectToAction(returnUrl);
+
             return RedirectToAction("Index");
         }
 

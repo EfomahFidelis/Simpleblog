@@ -16,7 +16,9 @@
     <div class="row">
         <div class="col-lg-8">
             @Html.ValidationSummary()
-
+             <!--
+           @Html.Hidden("returnUrl", this.Request.RawUrl) 
+             -->
             <div class="form=group">
                 @Html.LabelFor(f => f.Title)
                 @Html.TextBoxFor(f => f.Title, new { @class ="form-control"})
@@ -86,9 +88,9 @@
 @section Scripts
 {
     @Scripts.Render("~/admin/post/scripts")
-    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="~/Scripts/ckeditor/ckeditor.js"></script>
 
-    <script>
+    <script type="text/javascript">
         CKEDITOR.replace("Content");
     </script>
 }
