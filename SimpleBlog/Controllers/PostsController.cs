@@ -102,7 +102,7 @@ namespace SimpleBlog.Controllers
                 return HttpNotFound();
 
             if (!post.Slug.Equals(parts.Item2, StringComparison.CurrentCultureIgnoreCase))
-                return RedirectToActionPermanent("Post", new {id = parts.Item1, slug = post.Slug });
+                return RedirectToActionPermanent("Posts", new {id = parts.Item1, slug = post.Slug });
 
             return View(new PostsShow 
             { 

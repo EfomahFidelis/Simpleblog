@@ -6,9 +6,10 @@
 }
 
 <ul class="list-unstyled">
-    @if(Model.HasPreviousPage)
+
+@if(Model.HasPreviousPage)
     {
-        <li class="pull-left">
+        <li class="pull-right">
             <a href="@Url.Action(null, new { page=Model.PreviousPage})" class="btn btn-primary">
                 <i class="glyphyicon glyphyicon-chevron-left"></i>
                 Newer Posts
@@ -16,14 +17,16 @@
         </li>
     }
     
-     @if(Model.HasNextPage)
+ @if(Model.HasNextPage)
     {
-        <li class="pull-right">
+        <li class="pull-left">
             <a href="@Url.Action(null, new { page=Model.NextPage})" class="btn btn-primary">
                 Older Posts
                 <i class="glyphyicon glyphyicon-chevron-right"></i>
             </a>
         </li>
     }
+    
+    
 
 </ul>
